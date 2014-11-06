@@ -20,24 +20,24 @@
     <cc:implementation >        
 
  
-       <p:panel  style="width:160px;font-size: 75% !important;" header="#{cc.attrs.naslov}" rendered="#{cc.attrs.rendered}">
+       <p:panel  styleClass="#{cc.attrs.boja}" style="width:160px;font-size: 75% !important;" header="#{cc.attrs.naslov}" rendered="#{cc.attrs.rendered}" id="kombinacija5Panel">
 			
 			 <h:panelGrid columns="3" columnClasses="label, value" styleClass="grid" style="font-size: 75% !important;">  
 			 	<p:selectManyCheckbox value="#{simulacijaFacade.simulacija.odigraniBrojevi.kombinacija5.brojeviK1}"   style="width: 40px;vertical-align:top;"  layout="pageDirection" >			                                
 			    	<f:selectItems value="#{simulacijaFacade.brojeviKombinacijeK1}" />        
-			    	
+			    	<p:ajax update="kombinacija5Panel" event="change" partialSubmit="true" immediate="true" />
 			    	
 				</p:selectManyCheckbox>      
 				
 				<p:selectManyCheckbox  value="#{simulacijaFacade.simulacija.odigraniBrojevi.kombinacija5.brojeviK2}"  style="width: 40px;vertical-align:top;" layout="pageDirection" >                            
 			    	<f:selectItems value="#{simulacijaFacade.brojeviKombinacijeK2}" />  
-			    	
+			    	<p:ajax update="kombinacija5Panel" event="change" partialSubmit="true" immediate="true" />
 			    	                                    
 				</p:selectManyCheckbox>      
 					            
 				<p:selectManyCheckbox  value="#{simulacijaFacade.simulacija.odigraniBrojevi.kombinacija5.brojeviK3}"  style="width: 40px;vertical-align:top;" layout="pageDirection" >			                                
 			    	<f:selectItems value="#{simulacijaFacade.brojeviKombinacijeK3}" />   
-			    	
+			    	<p:ajax update="kombinacija5Panel" event="change" partialSubmit="true" immediate="true" />
 			    	                                   
 				</p:selectManyCheckbox>     
 					            

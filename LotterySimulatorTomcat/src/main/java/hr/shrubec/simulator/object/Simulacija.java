@@ -1,9 +1,10 @@
 package hr.shrubec.simulator.object;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Simulacija {
+public class Simulacija implements Serializable{
 
 	
 //	public static final Integer SIMULACIJA_VRSTA_645=1;

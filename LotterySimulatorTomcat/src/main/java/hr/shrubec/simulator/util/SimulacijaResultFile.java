@@ -1,7 +1,6 @@
 package hr.shrubec.simulator.util;
 
 import hr.shrubec.simulator.listic.Broj;
-import hr.shrubec.simulator.loto.Loto;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -19,7 +18,7 @@ public class SimulacijaResultFile {
 	
 	public SimulacijaResultFile(String filename) {
 		
-//		String folder="D:\\" + sdf.format(new Date())+"\\";
+//		String folder="C:\\" + sdf.format(new Date())+"\\";
 		String folder="//home/simulator//simulacije//"+sdf.format(new Date())+"//";
 		File dir = new File(folder);
 		dir.mkdir();
@@ -133,6 +132,7 @@ public class SimulacijaResultFile {
 		BufferedWriter output=null;
 		try {
 			 File file = new File("//home/simulator//simulacije_info.txt");
+//			 File file = new File("C:\\simulacije_info.txt");
 			output = new BufferedWriter(new FileWriter(file,true));
 			output.write("\r\n");
 			output.write(format.format(new Date()) + ", "

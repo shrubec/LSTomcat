@@ -1,7 +1,9 @@
 package hr.shrubec.simulator.object;
 
+import java.io.Serializable;
 
-public class OdigraniBrojevi {
+
+public class OdigraniBrojevi implements Serializable{
 	
 	
 	private Kombinacija kombinacija1=new Kombinacija();
@@ -14,6 +16,8 @@ public class OdigraniBrojevi {
 	private Kombinacija kombinacija8=new Kombinacija();
 	private Kombinacija kombinacija9=new Kombinacija();
 	private Kombinacija kombinacija10=new Kombinacija();
+	private Kombinacija kombinacija11=new Kombinacija();
+	private Kombinacija kombinacija12=new Kombinacija();
 	
 	
 	public Kombinacija getKombinacija1() {
@@ -75,6 +79,18 @@ public class OdigraniBrojevi {
 	}
 	public void setKombinacija10(Kombinacija kombinacija10) {
 		this.kombinacija10 = kombinacija10;
+	}
+	public Kombinacija getKombinacija11() {
+		return kombinacija11;
+	}
+	public void setKombinacija11(Kombinacija kombinacija11) {
+		this.kombinacija11 = kombinacija11;
+	}
+	public Kombinacija getKombinacija12() {
+		return kombinacija12;
+	}
+	public void setKombinacija12(Kombinacija kombinacija12) {
+		this.kombinacija12 = kombinacija12;
 	}
 
 }

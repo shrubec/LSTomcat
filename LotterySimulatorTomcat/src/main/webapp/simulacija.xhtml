@@ -41,15 +41,21 @@
 						<h:inputHidden id="simulationSpeed" value="#{simulacijaFacade.simulationSpeed}" />  
 	
 		   </p:outputPanel>
-		   
+		    
+		   <p:poll interval="1"  update="buttonActionPanel" />  
 		   <p:outputPanel id="buttonPanel" rendered="#{simulacijaFacade.simulationStarted == true}" >  	
 		   <p:spacer />
 		    		<h2>Simulation speed </h2>
 		    	 	<h:panelGrid   columns="4" columnClasses="label, value" styleClass="grid"  >  
         			<p:slider for="simulationSpeed" step="10" style="width: 300px"/>  
-			     	<p:commandButton id="submitButton02" update="mainForm" rendered="#{simulacijaFacade.simulationPaused == false}" value="Pause"  action="#{simulacijaFacade.pauseSimulation}"  onsuccess="javascript:pauseSimulation();" icon="ui-icon-pause" style="font-size: 75% !important;width:90px"/> 
-	                <p:commandButton id="submitButton03" update="mainForm" rendered="#{simulacijaFacade.simulationPaused == true}" value="Resume"  action="#{simulacijaFacade.resumeSimulation}"  onsuccess="javascript:resumeSimulation();" icon="ui-icon-play" style="font-size: 75% !important;width:90px"/> 
-	                <p:commandButton id="submitButton04" update="mainForm" disabled="#{simulacijaFacade.simulationPaused == false}" value="Next draw"  action="#{simulacijaFacade.nextStep}"   icon="ui-icon-seek-next" style="font-size: 75% !important;width:100px"/>
+        			
+        			 <p:outputPanel id="buttonActionPanel">  	
+	        			<p:commandButton id="submitButton02_1" update="mainForm" rendered="#{simulacijaFacade.finished == true}" value="Restart simulation"  action="#{simulacijaFacade.restartSimulation}"  icon="ui-icon-refresh" style="font-size: 75% !important;width:185px"/> 
+				     	<p:commandButton id="submitButton02" update="mainForm" rendered="#{simulacijaFacade.simulationPaused == false and simulacijaFacade.finished == false}" value="Pause"  action="#{simulacijaFacade.pauseSimulation}"  onsuccess="javascript:pauseSimulation();" icon="ui-icon-pause" style="font-size: 75% !important;width:90px"/> 
+		                <p:commandButton id="submitButton03" update="mainForm" rendered="#{simulacijaFacade.simulationPaused == true and simulacijaFacade.finished == false}" value="Resume"  action="#{simulacijaFacade.resumeSimulation}"  onsuccess="javascript:resumeSimulation();" icon="ui-icon-play" style="font-size: 75% !important;width:90px"/> 
+		                <p:commandButton id="submitButton04" update="mainForm" rendered="#{simulacijaFacade.finished == false}" disabled="#{simulacijaFacade.simulationPaused == false}" value="Next draw"  action="#{simulacijaFacade.nextStep}"   icon="ui-icon-seek-next" style="font-size: 75% !important;width:100px"/>
+						
+					</p:outputPanel>
 					
 					 <p:commandButton value="Download results" ajax="false" onclick="PrimeFaces.monitorDownload(showDialog,hideDialog);" icon="ui-icon-arrowthick-1-s"  style="font-size: 75% !important;width:140px">
 				        <p:fileDownload value="#{simulacijaFacade.file}" />
@@ -143,19 +149,19 @@
                 </h:panelGrid>  
                 
                 
-                <h:panelGrid columns="4" columnClasses="label, value" styleClass="grid" rendered="#{simulacijaFacade.renderOdabirBrojeva}" >              
-					<simulator:kombinacija1 naslov="Ticket 1"  rendered="#{simulacijaFacade.generirajKombinaciju(1)}"/> 
-					<simulator:kombinacija2 naslov="Ticket 2"  rendered="#{simulacijaFacade.generirajKombinaciju(2)}"/>
-					<simulator:kombinacija3 naslov="Ticket 3"  rendered="#{simulacijaFacade.generirajKombinaciju(3)}"/>
-					<simulator:kombinacija4 naslov="Ticket 4"  rendered="#{simulacijaFacade.generirajKombinaciju(4)}"/>
-					<simulator:kombinacija5 naslov="Ticket 5"  rendered="#{simulacijaFacade.generirajKombinaciju(5)}"/>		            
-					<simulator:kombinacija6 naslov="Ticket 6"  rendered="#{simulacijaFacade.generirajKombinaciju(6)}"/>
-					<simulator:kombinacija7 naslov="Ticket 7"  rendered="#{simulacijaFacade.generirajKombinaciju(7)}"/>		            
-					<simulator:kombinacija8 naslov="Ticket 8"  rendered="#{simulacijaFacade.generirajKombinaciju(8)}"/>
-					<simulator:kombinacija9 naslov="Ticket 9"  rendered="#{simulacijaFacade.generirajKombinaciju(9)}"/>		            
-					<simulator:kombinacija10 naslov="Ticket 10" rendered="#{simulacijaFacade.generirajKombinaciju(10)}"/>	
-					<simulator:kombinacija10 naslov="Ticket 11" rendered="#{simulacijaFacade.generirajKombinaciju(11)}"/>	
-					<simulator:kombinacija10 naslov="Ticket 12" rendered="#{simulacijaFacade.generirajKombinaciju(12)}"/>		         	            
+                <h:panelGrid id="ticketPanel" columns="4" columnClasses="label, value" styleClass="grid" rendered="#{simulacijaFacade.renderOdabirBrojeva}" >              
+					<simulator:kombinacija1 boja="#{simulacijaFacade.selectedNumbersColor1}" naslov="#{simulacijaFacade.selectedNumbersTitle1}"  rendered="#{simulacijaFacade.generirajKombinaciju(1)}"/> 
+					<simulator:kombinacija2 boja="#{simulacijaFacade.selectedNumbersColor2}" naslov="#{simulacijaFacade.selectedNumbersTitle2}"  rendered="#{simulacijaFacade.generirajKombinaciju(2)}"/>
+					<simulator:kombinacija3 boja="#{simulacijaFacade.selectedNumbersColor3}" naslov="#{simulacijaFacade.selectedNumbersTitle3}"  rendered="#{simulacijaFacade.generirajKombinaciju(3)}"/>
+					<simulator:kombinacija4 boja="#{simulacijaFacade.selectedNumbersColor4}" naslov="#{simulacijaFacade.selectedNumbersTitle4}"  rendered="#{simulacijaFacade.generirajKombinaciju(4)}"/>
+					<simulator:kombinacija5 boja="#{simulacijaFacade.selectedNumbersColor5}" naslov="#{simulacijaFacade.selectedNumbersTitle5}"  rendered="#{simulacijaFacade.generirajKombinaciju(5)}"/>		            
+					<simulator:kombinacija6 boja="#{simulacijaFacade.selectedNumbersColor6}" naslov="#{simulacijaFacade.selectedNumbersTitle6}"  rendered="#{simulacijaFacade.generirajKombinaciju(6)}"/>
+					<simulator:kombinacija7 boja="#{simulacijaFacade.selectedNumbersColor7}" naslov="#{simulacijaFacade.selectedNumbersTitle7}"  rendered="#{simulacijaFacade.generirajKombinaciju(7)}"/>		            
+					<simulator:kombinacija8 boja="#{simulacijaFacade.selectedNumbersColor8}" naslov="#{simulacijaFacade.selectedNumbersTitle8}"  rendered="#{simulacijaFacade.generirajKombinaciju(8)}"/>
+					<simulator:kombinacija9 boja="#{simulacijaFacade.selectedNumbersColor9}" naslov="#{simulacijaFacade.selectedNumbersTitle9}"  rendered="#{simulacijaFacade.generirajKombinaciju(9)}"/>		            
+					<simulator:kombinacija10 boja="#{simulacijaFacade.selectedNumbersColor10}" naslov="#{simulacijaFacade.selectedNumbersTitle10}" rendered="#{simulacijaFacade.generirajKombinaciju(10)}"/>	
+					<simulator:kombinacija11 boja="#{simulacijaFacade.selectedNumbersColor11}" naslov="#{simulacijaFacade.selectedNumbersTitle11}" rendered="#{simulacijaFacade.generirajKombinaciju(11)}"/>	
+					<simulator:kombinacija12 boja="#{simulacijaFacade.selectedNumbersColor12}" naslov="#{simulacijaFacade.selectedNumbersTitle12}" rendered="#{simulacijaFacade.generirajKombinaciju(12)}"/>		         	            
 				</h:panelGrid>
 
 			    

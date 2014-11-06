@@ -250,7 +250,6 @@ public class SimulacijaFacade implements Serializable{
 		this.brojeviKombinacijeK1 = brojeviKombinacijeK1;
 	}
 	public List<SelectItem> getBrojeviKombinacijeK2() {
-		
 		brojeviKombinacijeK2=new ArrayList<SelectItem>();
 		for (int i=2; i <= simulacija.getOdBrojeva(); i++) {
 			brojeviKombinacijeK2.add(new SelectItem(new Integer(i),String.valueOf(i)));
@@ -263,7 +262,6 @@ public class SimulacijaFacade implements Serializable{
 		this.brojeviKombinacijeK2 = brojeviKombinacijeK2;
 	}
 	public List<SelectItem> getBrojeviKombinacijeK3() {
-		
 		brojeviKombinacijeK3=new ArrayList<SelectItem>();
 		for (int i=3; i <= simulacija.getOdBrojeva(); i++) {
 			brojeviKombinacijeK3.add(new SelectItem(new Integer(i),String.valueOf(i)));
@@ -330,7 +328,9 @@ public class SimulacijaFacade implements Serializable{
 					simulacija.getOdigraniBrojevi().getKombinacija7().getBrojeviKombinacije().isEmpty() &&
 					simulacija.getOdigraniBrojevi().getKombinacija8().getBrojeviKombinacije().isEmpty() &&
 					simulacija.getOdigraniBrojevi().getKombinacija9().getBrojeviKombinacije().isEmpty() &&
-					simulacija.getOdigraniBrojevi().getKombinacija10().getBrojeviKombinacije().isEmpty()) {
+					simulacija.getOdigraniBrojevi().getKombinacija10().getBrojeviKombinacije().isEmpty() &&
+					simulacija.getOdigraniBrojevi().getKombinacija11().getBrojeviKombinacije().isEmpty() &&
+					simulacija.getOdigraniBrojevi().getKombinacija12().getBrojeviKombinacije().isEmpty()) {
 				
 				String poruka="Please select numbers";
 				FacesContext.getCurrentInstance().addMessage(":messages", new FacesMessage(FacesMessage.SEVERITY_ERROR, poruka, poruka));
@@ -764,5 +764,126 @@ public class SimulacijaFacade implements Serializable{
 		return null;
 		
 	}
+	
+	
+	
+	public String getSelectedNumbersTitle1() {
+		return getSelectedNumbersTitle("1");
+	}
+	public String getSelectedNumbersTitle2() {
+		return getSelectedNumbersTitle("2");
+	}
+	public String getSelectedNumbersTitle3() {
+		return getSelectedNumbersTitle("3");
+	}
+	public String getSelectedNumbersTitle4() {
+		return getSelectedNumbersTitle("4");
+	}
+	public String getSelectedNumbersTitle5() {
+		return getSelectedNumbersTitle("5");
+	}
+	public String getSelectedNumbersTitle6() {
+		return getSelectedNumbersTitle("6");
+	}
+	public String getSelectedNumbersTitle7() {
+		return getSelectedNumbersTitle("7");
+	}
+	public String getSelectedNumbersTitle8() {
+		return getSelectedNumbersTitle("8");
+	}
+	public String getSelectedNumbersTitle9() {
+		return getSelectedNumbersTitle("9");
+	}
+	public String getSelectedNumbersTitle10() {
+		return getSelectedNumbersTitle("10");
+	}
+	public String getSelectedNumbersTitle11() {
+		return getSelectedNumbersTitle("11");
+	}
+	public String getSelectedNumbersTitle12() {
+		return getSelectedNumbersTitle("12");
+	}
+		
+	
+	public String getSelectedNumbersColor1() {
+		return getSelectedNumbersColor("1");
+	}
+	public String getSelectedNumbersColor2() {
+		return getSelectedNumbersColor("2");
+	}
+	public String getSelectedNumbersColor3() {
+		return getSelectedNumbersColor("3");
+	}
+	public String getSelectedNumbersColor4() {
+		return getSelectedNumbersColor("4");
+	}
+	public String getSelectedNumbersColor5() {
+		return getSelectedNumbersColor("5");
+	}
+	public String getSelectedNumbersColor6() {
+		return getSelectedNumbersColor("6");
+	}
+	public String getSelectedNumbersColor7() {
+		return getSelectedNumbersColor("7");
+	}
+	public String getSelectedNumbersColor8() {
+		return getSelectedNumbersColor("8");
+	}
+	public String getSelectedNumbersColor9() {
+		return getSelectedNumbersColor("9");
+	}
+	public String getSelectedNumbersColor10() {
+		return getSelectedNumbersColor("10");
+	}
+	public String getSelectedNumbersColor11() {
+		return getSelectedNumbersColor("11");
+	}
+	public String getSelectedNumbersColor12() {
+		return getSelectedNumbersColor("12");
+	}
+	
+	
+	private int ispunjenoBrojevaUListicu(String listic) {
+		try {
+			OdigraniBrojevi brojevi=simulacija.getOdigraniBrojevi();
+			Method method=brojevi.getClass().getMethod("getKombinacija"+listic, null);
+			Kombinacija kombinacija=(Kombinacija) method.invoke(brojevi, null);
+			return kombinacija.getBrojeviKombinacije().size();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	
+	
+	public String getSelectedNumbersTitle(String ticket) {
+		
+		String title="Ticket "+ticket;
+		Integer brojeva=ispunjenoBrojevaUListicu(ticket);
+		if (brojeva.intValue() > 0) {
+			title="Ticket "+ticket+" (" + brojeva + " / " + simulacija.getBrojeva()+")";
+		}
+		
+		return title;
+		
+	}
 
+	public String getSelectedNumbersColor(String ticket) {
+		
+		String title="";
+		Integer brojeva=ispunjenoBrojevaUListicu(ticket);
+		if (brojeva.intValue() > 0) {
+			if (brojeva.intValue() == simulacija.getBrojeva().intValue()) {
+				return "greenColoredPanel";
+			}
+			else {
+				return "redColoredPanel";
+			}
+		}
+		
+		return title;
+		
+	}
+
+	
 }

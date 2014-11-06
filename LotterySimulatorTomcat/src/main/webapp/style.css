@@ -420,3 +420,12 @@ hr { display: none; }
 #footer a {
 	color: #fff;
 }
+
+
+.redColoredPanel .ui-panel-titlebar {
+   background-color: red;
+}
+
+.greenColoredPanel .ui-panel-titlebar {
+   background-color: green;
+}
