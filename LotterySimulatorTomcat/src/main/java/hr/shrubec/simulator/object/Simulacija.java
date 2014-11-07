@@ -44,7 +44,7 @@ public class Simulacija implements Serializable{
 //		odigraniBrojevi.getKombinacija1().getBrojeviK3().add(15);
 //		odigraniBrojevi.getKombinacija1().getBrojeviK3().add(18);
 //		odigraniBrojevi.getKombinacija1().getBrojeviK3().add(21);
-		
+//		
 
 	}
 	

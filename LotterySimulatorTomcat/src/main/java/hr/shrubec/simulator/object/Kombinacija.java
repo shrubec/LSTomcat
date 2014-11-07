@@ -1,11 +1,13 @@
 package hr.shrubec.simulator.object;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Kombinacija {
+@SuppressWarnings("serial")
+public class Kombinacija implements Serializable {
 
 	private List<Integer> brojeviK1=new ArrayList<Integer>();
 	private List<Integer> brojeviK2=new ArrayList<Integer>();

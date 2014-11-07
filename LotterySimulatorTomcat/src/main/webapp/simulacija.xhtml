@@ -2,7 +2,8 @@
         xmlns:h="http://java.sun.com/jsf/html"  
         xmlns:f="http://java.sun.com/jsf/core"  
         xmlns:p="http://primefaces.org/ui"
-        xmlns:simulator="http://java.sun.com/jsf/composite/simulator">  
+        xmlns:simulator="http://java.sun.com/jsf/composite/simulator"
+          xmlns:ui="http://java.sun.com/jsf/facelets">  
       
         <h:head>  
       
@@ -12,10 +13,11 @@
           
         <h:body>  
         
-        
+       
           
          <h:form id="mainForm">  
          
+        
          <p:messages id="messages"  />
          
          <p:outputPanel rendered="#{simulacijaFacade.simulationStarted == false}">
@@ -44,13 +46,14 @@
 		    
 		   <p:poll interval="1"  update="buttonActionPanel" />  
 		   <p:outputPanel id="buttonPanel" rendered="#{simulacijaFacade.simulationStarted == true}" >  	
+		   
 		   <p:spacer />
 		    		<h2>Simulation speed </h2>
 		    	 	<h:panelGrid   columns="4" columnClasses="label, value" styleClass="grid"  >  
         			<p:slider for="simulationSpeed" step="10" style="width: 300px"/>  
         			
         			 <p:outputPanel id="buttonActionPanel">  	
-	        			<p:commandButton id="submitButton02_1" update="mainForm" rendered="#{simulacijaFacade.finished == true}" value="Restart simulation"  action="#{simulacijaFacade.restartSimulation}"  icon="ui-icon-refresh" style="font-size: 75% !important;width:185px"/> 
+	        			<p:commandButton id="submitButton02_1" update="mainForm"   rendered="#{simulacijaFacade.finished == true}" value="Restart simulation" action="#{simulacijaFacade.restartSimulation}"   icon="ui-icon-refresh" style="font-size: 75% !important;width:185px" /> 
 				     	<p:commandButton id="submitButton02" update="mainForm" rendered="#{simulacijaFacade.simulationPaused == false and simulacijaFacade.finished == false}" value="Pause"  action="#{simulacijaFacade.pauseSimulation}"  onsuccess="javascript:pauseSimulation();" icon="ui-icon-pause" style="font-size: 75% !important;width:90px"/> 
 		                <p:commandButton id="submitButton03" update="mainForm" rendered="#{simulacijaFacade.simulationPaused == true and simulacijaFacade.finished == false}" value="Resume"  action="#{simulacijaFacade.resumeSimulation}"  onsuccess="javascript:resumeSimulation();" icon="ui-icon-play" style="font-size: 75% !important;width:90px"/> 
 		                <p:commandButton id="submitButton04" update="mainForm" rendered="#{simulacijaFacade.finished == false}" disabled="#{simulacijaFacade.simulationPaused == false}" value="Next draw"  action="#{simulacijaFacade.nextStep}"   icon="ui-icon-seek-next" style="font-size: 75% !important;width:100px"/>
@@ -167,34 +170,25 @@
 			    
 				<p:commandButton id="submitButton01" value="Start simulation" update="mainForm" action="#{simulacijaFacade.pokreniSimulaciju}"  /> 
                  
-				
- 				   
-  				
-
-                
            </p:outputPanel>
 
  
 	 	<p:outputPanel id="piePanel" style="width:658px" rendered="#{simulacijaFacade.simulationStarted == true}">  
 	 	
-	 	  	<p:poll interval="1"  update="chart1" />  
 			<p:chart id="chart1" type="pie" model="#{simulacijaFacade.pieModel}" style="width:650px;height:300px" showDataLabels="true" />  
-                 
-                 
-               
+	 	  	<p:poll interval="1"  update="chart1" />  
 	 	
 	 	</p:outputPanel>
  
- 
-
  
  		<p:growl id="simulationMessage" showDetail="true" sticky="true" globalOnly="true" />  
   		<p:poll interval="5" listener="#{simulacijaFacade.displaySimulationMessage}" update="simulationMessage" rendered="#{simulacijaFacade.simulationStarted == true}"/>  
       
       
+      
 </h:form>  
 
-              
+
         </h:body>  
         
         <div id="myDiv"></div>

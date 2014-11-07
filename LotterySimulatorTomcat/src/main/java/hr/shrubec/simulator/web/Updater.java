@@ -45,11 +45,7 @@ public class Updater extends HttpServlet {
 	    PrintWriter out = response.getWriter();
 	    
 	    String trenutnaSimulacijaId=request.getParameter("trenutnaSimulacija");
-	    System.out.println("TrenutaSimulacijaId = " + trenutnaSimulacijaId);
-		
 		Map map=(Map) request.getSession().getAttribute("simulacija");
-		
-		System.out.println("MAP: " + map);
 		
 		KoloDO trenutnoKolo=null;
 		if(map == null) {
@@ -63,28 +59,6 @@ public class Updater extends HttpServlet {
 			
 		if (trenutnoKolo == null)
 			trenutnoKolo=new KoloDO();
-		
-		
-		System.out.println("TRENUTNO KOLO: " + trenutnoKolo.getKolo());
-		
-		/*out.println("Trenutno kolo: " + trenutnoKolo.getKolo());
-		out.println("<br> ");
-		out.println("Datum: " + sdf.format(trenutnoKolo.getDatum()));
-		
-		out.println("<br> ");
-		
-		out.println("Ukupno odigrano kombinacija: " + trenutnoKolo.getUkupnoOdigrano());	out.println("<br> ");
-		
-		out.println("Ukupno nula: " + trenutnoKolo.getUkupnoPogodjeno0());	out.println("<br> ");
-		out.println("Ukupno jedinica: " + trenutnoKolo.getUkupnoPogodjeno1());	out.println("<br> ");
-		out.println("Ukupno dvojki: " + trenutnoKolo.getUkupnoPogodjeno2());	out.println("<br> ");
-		out.println("Ukupno trojki: " + trenutnoKolo.getUkupnoPogodjeno3());	out.println("<br> ");
-		out.println("Ukupno cetvorki: " + trenutnoKolo.getUkupnoPogodjeno4());	out.println("<br> ");
-		out.println("Ukupno petica: " + trenutnoKolo.getUkupnoPogodjeno5());	out.println("<br> ");
-		out.println("Ukupno sestica: " + trenutnoKolo.getUkupnoPogodjeno6());	out.println("<br> ");
-		out.println("Ukupno sedmica: " + trenutnoKolo.getUkupnoPogodjeno7());	out.println("<br> ");
-		
-		*/
 		
 		
 		out.println("<head>");
@@ -343,7 +317,7 @@ public class Updater extends HttpServlet {
 	private void generateNumbers(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		String trenutnaSimulacijaId=request.getParameter("trenutnaSimulacija");
-		System.out.println("JSP TrenutaSimulacijaId = " + trenutnaSimulacijaId);
+//		System.out.println("JSP TrenutaSimulacijaId = " + trenutnaSimulacijaId);
 		Map map=(Map) request.getSession().getAttribute("simulacija");
 
 		Loto loto=null;

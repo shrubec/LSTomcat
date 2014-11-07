@@ -23,21 +23,21 @@
        <p:panel  styleClass="#{cc.attrs.boja}" style="width:160px;font-size: 75% !important;" header="#{cc.attrs.naslov}" rendered="#{cc.attrs.rendered}" id="kombinacija10Panel">
 			
 			 <h:panelGrid columns="3" columnClasses="label, value" styleClass="grid" style="font-size: 75% !important;">  
-			 	<p:selectManyCheckbox value="#{simulacijaFacade.simulacija.odigraniBrojevi.kombinacija10.brojeviK1}"   style="width: 40px;vertical-align:top;"  layout="pageDirection" >			                                
+			 	<p:selectManyCheckbox value="#{simulacijaFacade.simulacija.odigraniBrojevi.kombinacija10.brojeviK1}"   style="width: 40px;vertical-align:top;"  layout="pageDirection" immediate="true">			                                
 			    	<f:selectItems value="#{simulacijaFacade.brojeviKombinacijeK1}" />        
-			    	<p:ajax update="kombinacija10Panel" event="change" partialSubmit="true" immediate="true" />
+			    	<p:ajax update="kombinacija10Panel" event="change" partialSubmit="true" process="@this" />
 			    	
 				</p:selectManyCheckbox>      
 				
-				<p:selectManyCheckbox  value="#{simulacijaFacade.simulacija.odigraniBrojevi.kombinacija10.brojeviK2}"  style="width: 40px;vertical-align:top;" layout="pageDirection" >                            
+				<p:selectManyCheckbox  value="#{simulacijaFacade.simulacija.odigraniBrojevi.kombinacija10.brojeviK2}"  style="width: 40px;vertical-align:top;" layout="pageDirection" immediate="true">                            
 			    	<f:selectItems value="#{simulacijaFacade.brojeviKombinacijeK2}" />  
-			    		<p:ajax update="kombinacija10Panel" event="change" partialSubmit="true" immediate="true" />
+			    		<p:ajax update="kombinacija10Panel" event="change" partialSubmit="true" process="@this" />
 			    	                                    
 				</p:selectManyCheckbox>      
 					            
-				<p:selectManyCheckbox  value="#{simulacijaFacade.simulacija.odigraniBrojevi.kombinacija10.brojeviK3}"  style="width: 40px;vertical-align:top;" layout="pageDirection" >			                                
+				<p:selectManyCheckbox  value="#{simulacijaFacade.simulacija.odigraniBrojevi.kombinacija10.brojeviK3}"  style="width: 40px;vertical-align:top;" layout="pageDirection" immediate="true">			                                
 			    	<f:selectItems value="#{simulacijaFacade.brojeviKombinacijeK3}" />   
-			    		<p:ajax update="kombinacija10Panel" event="change" partialSubmit="true" immediate="true" />
+			    		<p:ajax update="kombinacija10Panel" event="change" partialSubmit="true" process="@this" />
 			    	                                   
 				</p:selectManyCheckbox>     
 					            

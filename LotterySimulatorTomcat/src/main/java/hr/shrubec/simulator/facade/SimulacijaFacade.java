@@ -33,6 +33,7 @@ import org.primefaces.model.chart.PieChartModel;
 
 @ManagedBean
 @ViewScoped
+@SuppressWarnings("serial")
 public class SimulacijaFacade implements Serializable{
 
 //	@EJB SimulacijaBean simulacijaBean;
@@ -389,14 +390,6 @@ public class SimulacijaFacade implements Serializable{
 				
 				System.out.println("TRENUTNA SIMULACIJA ID: " + trenutnaSimulacijaId);
 				
-				
-				/*
-				LotoThread thread=new LotoThread(loto,listaKombinacija);
-				thread.start();*/
-				
-				//loto.kombinacije(1000, listaKombinacija);
-				
-				
 			}
 	
 		}
@@ -429,21 +422,14 @@ public class SimulacijaFacade implements Serializable{
 	
 	
 	public void kombinacijaChanged(ValueChangeEvent evt) {
-		
 		validirajKombinaciju(1);
-		
 	}
 
-	
-	public void test() {
-	}
-	
 	public void pokreniSimulaciju() {
 		
 		if (!validiraj()) {
 			return;
 		}
-		
 		
 		HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		
@@ -509,7 +495,7 @@ public class SimulacijaFacade implements Serializable{
 		
 		Loto loto=(Loto) map.get(trenutnaSimulacijaId);
 		if (loto != null) {
-			System.out.println("FACADE simulacija id: " + trenutnaSimulacijaId + ", finished: " +loto.isFinished());
+//			System.out.println("FACADE simulacija id: " + trenutnaSimulacijaId + ", finished: " +loto.isFinished());
 			if (loto.isFinished() && !loto.isSavedAsFinished()) {
 //				simulacijaBean.zavrsiSimulaciju(trenutnaSimulacijaId, false);
 				loto.setSavedAsFinished(true);
@@ -542,7 +528,7 @@ public class SimulacijaFacade implements Serializable{
 		if (map != null)
 			loto=(Loto) map.get(trenutnaSimulacijaId);
 		
-		System.out.println("Chart map: " + map);
+//		System.out.println("Chart map: " + map);
 
 		if(loto == null || loto.getTrenutnoKolo() == null) {
 
@@ -885,5 +871,4 @@ public class SimulacijaFacade implements Serializable{
 		
 	}
 
-	
 }
