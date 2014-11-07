@@ -18,8 +18,8 @@ public class SimulacijaResultFile {
 	
 	public SimulacijaResultFile(String filename) {
 		
-		String folder="C:\\" + sdf.format(new Date())+"\\";
-//		String folder="//home/simulator//simulacije//"+sdf.format(new Date())+"//";
+//		String folder="C:\\" + sdf.format(new Date())+"\\";
+		String folder="//home/simulator//simulacije//"+sdf.format(new Date())+"//";
 		File dir = new File(folder);
 		dir.mkdir();
 		file = new File(folder + filename+ ".txt");
@@ -131,8 +131,8 @@ public class SimulacijaResultFile {
 		SimpleDateFormat format=new SimpleDateFormat("dd.MM.yyyy HH:mm");
 		BufferedWriter output=null;
 		try {
-//			 File file = new File("//home/simulator//simulacije_info.txt");
-			 File file = new File("C:\\simulacije_info.txt");
+			 File file = new File("//home/simulator//simulacije_info.txt");
+//			 File file = new File("C:\\simulacije_info.txt");
 			output = new BufferedWriter(new FileWriter(file,true));
 			output.write("\r\n");
 			output.write(format.format(new Date()) + ", "
