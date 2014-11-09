@@ -34,7 +34,7 @@ import org.primefaces.model.chart.PieChartModel;
 @ManagedBean
 @ViewScoped
 @SuppressWarnings("serial")
-public class SimulacijaFacade implements Serializable{
+public class SimulacijaFacade {
 
 //	@EJB SimulacijaBean simulacijaBean;
 	
@@ -860,10 +860,14 @@ public class SimulacijaFacade implements Serializable{
 		Integer brojeva=ispunjenoBrojevaUListicu(ticket);
 		if (brojeva.intValue() > 0) {
 			if (brojeva.intValue() == simulacija.getBrojeva().intValue()) {
-				return "greenColoredPanel";
+//				return "greenColoredPanel";
+//				return "greenToolbar";
+				return "background-color: green;";
 			}
 			else {
-				return "redColoredPanel";
+//				return "redColoredPanel";
+//				return "redToolbar";
+				return "background-color: red;";
 			}
 		}
 		

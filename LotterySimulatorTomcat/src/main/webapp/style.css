@@ -429,3 +429,19 @@ hr { display: none; }
 .greenColoredPanel .ui-panel-titlebar {
   background-color: green;
 }
+
+.redToolbar .ui-toolbar {
+   background-color: red;
+}
+
+.greenToolbar .ui-toolbar {
+  background-color: green;
+}
+
+
+.simulatorPanelContent .ui-panel-content{
+	border: 0px none;
+	background: none repeat scroll 0% 0% transparent;
+	padding: 0.1em 0.1em;
+	
+}

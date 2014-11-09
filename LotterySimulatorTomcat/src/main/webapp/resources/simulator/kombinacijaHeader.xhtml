@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core" > 
+    
+
+
+    <!-- INTERFACE -->
+    <cc:interface>         
+    	<cc:attribute name="naslov" />       
+        <cc:attribute name="boja"/>        
+    </cc:interface> 
+ 
+    <!-- IMPLEMENTATION --> 
+    <cc:implementation >        
+
+ 			<p:toolbar style="#{cc.attrs.boja}" styleClass="ui-panel-titlebar"> 
+				  <f:facet name="left">
+				 	<p:outputLabel value="#{cc.attrs.naslov}" />
+				 </f:facet>
+			 </p:toolbar>	
+			 
+	</cc:implementation>
+</html>
