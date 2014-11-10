@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -33,6 +34,8 @@ public class MailScheduler extends HttpServlet{
 //	final String path="C:\\";
 	final String username = "lotosimulator@gmail.com ";
 	final String password = "simulator0810";
+	final int HOUR=4;
+	final int MINUTE=0;
 	
 	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 	
@@ -46,8 +49,9 @@ public class MailScheduler extends HttpServlet{
 	 public void start() {
 			final Runnable thread = new Runnable() {
 				public void run() {
-					sendMail(readFile());
-					clearInfoFile();
+					if (sendMail(readFile())) {
+						clearInfoFile();
+					}
 					deleteSimulationFolders();
 				}
 			};
@@ -88,8 +92,8 @@ public class MailScheduler extends HttpServlet{
 	 
 	 private Long getDelay() {
 		 Calendar cal=Calendar.getInstance();
-		 cal.set(Calendar.HOUR, 4);
-		 cal.set(Calendar.MINUTE, 0);
+		 cal.set(Calendar.HOUR, HOUR);
+		 cal.set(Calendar.MINUTE, MINUTE);
 		 cal.set(Calendar.SECOND, 0);
 		 Calendar cal1=Calendar.getInstance();
 		 if (cal1.after(cal)) {
@@ -105,11 +109,14 @@ public class MailScheduler extends HttpServlet{
 	private String memorija() {
 		long allocatedMemory = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
 		long presumableFreeMemory = Runtime.getRuntime().maxMemory()- allocatedMemory;
+		String s0 = "Trenutno vrijeme: " + new Date();
 		String s1 = "Ukupno memorije: " + Runtime.getRuntime().totalMemory()/ 1000;
 		String s2 = "Alocirano: " + allocatedMemory / 1000;
 		String s3 = "Pretpostavljeno slobodno: " + presumableFreeMemory / 1000;
 		String s4 = "Slobodno: " + Runtime.getRuntime().freeMemory() / 1000;
 		StringBuilder sb = new StringBuilder();
+		sb.append(s0);
+		sb.append(System.getProperty("line.separator"));
 		sb.append(s1);
 		sb.append(System.getProperty("line.separator"));
 		sb.append(s2);
@@ -122,7 +129,7 @@ public class MailScheduler extends HttpServlet{
 	}
 	
 	
-	private void sendMail(String poruka) {
+	private boolean sendMail(String poruka) {
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -148,8 +155,11 @@ public class MailScheduler extends HttpServlet{
 			LOGGER.info("Mail uspjesno poslan");
  
 		} catch (MessagingException e) {
-			throw new RuntimeException(e);
+			e.printStackTrace();
+			return false;
 		}
+		
+		return true;
 	}
 	
 	private void clearInfoFile() {
