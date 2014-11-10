@@ -3,7 +3,8 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
- 
+
+
  <context-param>
     <param-name>javax.faces.PROJECT_STAGE</param-name>
     <param-value>Production</param-value>
@@ -13,6 +14,11 @@
     <param-value>-1</param-value>
 </context-param>
  
+ <servlet>
+    <servlet-name>MailScheduler</servlet-name>
+    <servlet-class>hr.shrubec.simulator.util.MailScheduler</servlet-class>
+    <load-on-startup>1</load-on-startup>
+</servlet>
  
  <welcome-file-list>
 <welcome-file>simulation.jsf</welcome-file>
