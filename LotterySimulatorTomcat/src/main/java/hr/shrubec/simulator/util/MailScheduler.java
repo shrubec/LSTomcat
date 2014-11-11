@@ -49,17 +49,23 @@ public class MailScheduler extends HttpServlet{
 	 public void start() {
 			final Runnable thread = new Runnable() {
 				public void run() {
-					if (sendMail(readFile())) {
-						clearInfoFile();
+					if (sendMail(readFiles())) {
+						clearFiles();
 					}
 					deleteSimulationFolders();
 				}
 			};
-			scheduler.scheduleAtFixedRate(thread, getDelay(), 86400, TimeUnit.SECONDS);
+			scheduler.scheduleAtFixedRate(thread, getDelay(), 43200, TimeUnit.SECONDS);
 		}
 	 
+	 private String readFiles() {
+			String s1= readFile("simulacije_info.txt");
+			String s2= readFile("kontakt.txt");
+			String s3=s1+System.getProperty("line.separator")+s2;
+			return s3;
+		 }
 	 
-	 private String readFile() {
+	 private String readFile(String fileName){
 		 String message=memorija();
 		 File file = new File(path+"simulacije_info.txt");
 		 if (file != null && file.exists())  {
@@ -82,13 +88,16 @@ public class MailScheduler extends HttpServlet{
 	    		
 	    	}
 	    	else {
-	    		message=message+System.getProperty("line.separator")+"Datoteka ne postoji, nema novih simulacija";
+	    		message=message+System.getProperty("line.separator")+"Datoteka" + fileName +" ne postoji";
 	    		
 	    	}
 		 
 		 LOGGER.info(message);
 		 return message;
 	 }
+	 
+	 
+	 
 	 
 	 private Long getDelay() {
 		 Calendar cal=Calendar.getInstance();
@@ -162,8 +171,13 @@ public class MailScheduler extends HttpServlet{
 		return true;
 	}
 	
-	private void clearInfoFile() {
-		File file = new File(path+"simulacije_info.txt");
+	private void clearFiles() {
+		clearFile("simulacije_info.txt");
+		clearFile("kontakt.txt");
+	}
+	
+	private void clearFile(String fileName) {
+		File file = new File(path+fileName);
 		if (file.exists()) {
 			try {
 				FileOutputStream writer = new FileOutputStream(file);
@@ -176,6 +190,7 @@ public class MailScheduler extends HttpServlet{
 		}
 	}
 	
+
 	private void deleteSimulationFolders() {
 			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 			for (int i=1; i <=10; i++) {
