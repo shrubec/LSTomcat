@@ -31,10 +31,10 @@ public class MailScheduler extends HttpServlet{
 
 	Logger LOGGER=Logger.getLogger(MailScheduler.class.getName());
 	final String path="//home/simulator//";
-//	final String path="C:\\";
+//	final String path="D:\\";
 	final String username = "lotosimulator@gmail.com ";
 	final String password = "simulator0810";
-	final int HOUR=4;
+	final int HOUR=8;
 	final int MINUTE=0;
 	
 	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -59,15 +59,18 @@ public class MailScheduler extends HttpServlet{
 		}
 	 
 	 private String readFiles() {
-			String s1= readFile("simulacije_info.txt");
-			String s2= readFile("kontakt.txt");
-			String s3=s1+System.getProperty("line.separator")+s2;
+		 	String s0=memorija();
+		 	String s1= readFile("kontakt.txt");
+			String s2= readFile("simulacije_info.txt");
+			if (s1.trim().isEmpty()) s1="Nema novih kontakata";
+			if (s2.trim().isEmpty()) s2="Nema novih simulacija";
+			String s3=s0+System.getProperty("line.separator")+s1+System.getProperty("line.separator")+s2;
 			return s3;
 		 }
 	 
 	 private String readFile(String fileName){
-		 String message=memorija();
-		 File file = new File(path+"simulacije_info.txt");
+		 String message="";
+		 File file = new File(path+fileName);
 		 if (file != null && file.exists())  {
 	    		try {
 					BufferedReader br = new BufferedReader(new FileReader(file));
@@ -88,7 +91,7 @@ public class MailScheduler extends HttpServlet{
 	    		
 	    	}
 	    	else {
-	    		message=message+System.getProperty("line.separator")+"Datoteka" + fileName +" ne postoji";
+	    		message=message+System.getProperty("line.separator")+"Datoteka " + fileName +" ne postoji";
 	    		
 	    	}
 		 
@@ -162,7 +165,6 @@ public class MailScheduler extends HttpServlet{
 			message.setText(poruka);
 			Transport.send(message);
 			LOGGER.info("Mail uspjesno poslan");
- 
 		} catch (MessagingException e) {
 			e.printStackTrace();
 			return false;
