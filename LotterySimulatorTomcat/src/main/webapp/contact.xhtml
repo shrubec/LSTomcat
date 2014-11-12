@@ -1,93 +1,73 @@
-<!DOCTYPE some_name [
-		<!ENTITY nbsp "&#160;">
-		]>      
-<html xmlns="http://www.w3.org/1999/xhtml"  
-        xmlns:h="http://java.sun.com/jsf/html"  
-        xmlns:f="http://java.sun.com/jsf/core"  
-        xmlns:p="http://primefaces.org/ui"
-        xmlns:simulator="http://java.sun.com/jsf/composite/simulator"
-        xmlns:ui="http://java.sun.com/jsf/facelets">  
-      
-      
-	<h:head>  
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-			<title>Lottery Simulator</title>
-		<meta name="keywords" content="" />
-		<meta name="description" content="" />
-		<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
-		
-		
-		 
-	</h:head>  
-          
-    <h:body>  
-		
-		<div id="wrapper">
-	<div id="logo">
-		<h1>Lottery Simulator</h1>
-		<p><em> Developed by Sasa Hrubec </em></p>
-	</div>
-	<hr />
-	<!-- end #logo -->
-	<div id="header">
-		<div id="menu">
-			<ul>
-				<li><a href="simulation.jsf" class="first">Simulation</a></li>
-				<li><a href="about.jsf">About</a></li>
-				<li class="current_page_item"><a href="contact.jsf">Contact</a></li>
-			</ul>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:simulator="http://java.sun.com/jsf/composite/simulator"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Lottery Simulator</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="stickyStyle.css" rel="stylesheet" type="text/css" media="screen" />
+</h:head>
+
+<h:body>
+
+	<div id="wrap">
+
+		<div id="logo">
+			<h1>Lottery Simulator</h1>
+			<p>
+				<em> Developed by Sasa Hrubec </em>
+			</p>
 		</div>
-		<!-- end #menu -->
-		<!-- end #search -->
-	</div>
-	<!-- end #header -->
-	<!-- end #header-wrapper -->
-	<div id="page">
-	<div id="page-bgtop">
-    
-    <div id="sidebar">
-			<ul>
-				<li>
-					<h2>Lorem ipsum</h2>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-				</li>
-				<li>
-					<h2>Lorem ipsum</h2>
-					<ul>
-						<li><a href="#">Lorem ipsum</a></li>
-						<li><a href="#">Lorem ipsum</a></li>
-						<li><a href="#">Lorem ipsum</a></li>
-						<li><a href="#">Lorem ipsum</a></li>
-						<li><a href="#">Lorem ipsum</a></li>
-					</ul>
-				</li>
-			</ul>
-</div>
-		<!-- end #sidebar -->
-    
-		<div id="content">
-		
-		<ui:include src="contact_form.xhtml" />
-		
+		<hr />
 
-</div>
-		<!-- end #content -->
-		
-		<div style="clear: both;">&nbsp;</div>
+		<div id="header">
+			<div id="menu">
+				<ul>
+					<li><a href="simulation.jsf" class="first">Simulation</a></li>
+					<li><a href="about.jsf">About</a></li>
+					<li class="current_page_item"><a href="contact.jsf">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="page">
+			<div id="page-bgtop">
+
+				<div id="sidebar">
+<!-- 								<ul> -->
+<!-- 									<li> -->
+<!-- 										<h2>Lorem ipsum</h2> -->
+<!-- 										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<h2>Lorem ipsum</h2> -->
+<!-- 										<ul> -->
+<!-- 											<li><a href="#">Lorem ipsum</a></li> -->
+<!-- 											<li><a href="#">Lorem ipsum</a></li> -->
+<!-- 											<li><a href="#">Lorem ipsum</a></li> -->
+<!-- 											<li><a href="#">Lorem ipsum</a></li> -->
+<!-- 											<li><a href="#">Lorem ipsum</a></li> -->
+<!-- 										</ul> -->
+<!-- 									</li> -->
+<!-- 								</ul> -->
+				</div>
+
+				<div id="content">
+					<ui:include src="contact_form.xhtml" />
+				</div>
+			</div>
+		</div>
 	</div>
-	</div>
-	<!-- end #page -->
-	<div id="footer-bgcontent">
+
 	<div id="footer">
-		<p>Copyright  2014 lottery-simulator.com. All rights reserved.
-</p>
-	</div>
-	</div>
-	<!-- end #footer -->
-</div>
+			<p>Copyright 2014 lottery-simulator.com. All rights reserved.</p>
+		</div>
 
-
-              
-    </h:body>  
-    
-</html>  
+</h:body>
+</html>

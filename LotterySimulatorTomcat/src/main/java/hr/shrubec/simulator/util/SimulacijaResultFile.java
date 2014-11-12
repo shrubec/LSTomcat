@@ -12,14 +12,16 @@ import java.util.Set;
 
 public class SimulacijaResultFile {
 
-	private File file = null;
+	private File file = null; 
 	private BufferedWriter output=null;
 	private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	
+	final static String path="//home/simulator//";
+//	final String path="D:\\";
+	
 	public SimulacijaResultFile(String filename) {
 		
-//		String folder="C:\\" + sdf.format(new Date())+"\\";
-		String folder="//home/simulator//simulacije//"+sdf.format(new Date())+"//";
+		String folder=path + sdf.format(new Date())+"\\";
 		File dir = new File(folder);
 		dir.mkdir();
 		file = new File(folder + filename+ ".txt");
@@ -34,20 +36,12 @@ public class SimulacijaResultFile {
 
 
 	public void appendIzvuceno(Set<Broj> izvucenaKombinacija,Integer kolo,Date datum) throws IOException {
-//		output.write(System.lineSeparator());
-//		output.write(System.lineSeparator());
 		output.write("\r\n");
 		output.write("\r\n");
-//		output.newLine();
-//		output.newLine();
 		output.write("-----------------------------------------------------------------------------------");
-//		output.newLine();
-//		output.newLine();
 		output.write("\r\n");
 		output.write("\r\n");
 		output.write("Drawing " + kolo + ", " + sdf.format(datum));
-//		output.write(System.getProperty("line.separator"));
-//		output.write("----------------------------------------------------------");
 		output.write("\r\n");
 		output.write("Winning numbers: ");
 		String s="";
@@ -55,9 +49,7 @@ public class SimulacijaResultFile {
 			s=s+broj.getBroj()+", ";
 		}
 		output.write(s.substring(0,s.lastIndexOf(",")));
-//		output.newLine();
 		output.write("\r\n");
-//		output.write("----------------------------------------------------------");
 		
 	}
 	
@@ -82,10 +74,6 @@ public class SimulacijaResultFile {
 		if (s.contains(",")) 
 			s=s.substring(0,s.lastIndexOf(","));
 		output.write(s);
-		
-//		output.write(System.getProperty("line.separator"));
-//		output.write("----------------------------------------------------------");
-//		output.write(System.getProperty("line.separator"));
 		output.flush();
 	}
 	
@@ -114,7 +102,6 @@ public class SimulacijaResultFile {
 				System.out.println("GRESKA KOD BRISANJA");
 				e.printStackTrace();
 			}
-			System.out.println("DELETED: " + deleted);
 		}
 		
 	}
@@ -131,8 +118,7 @@ public class SimulacijaResultFile {
 		SimpleDateFormat format=new SimpleDateFormat("dd.MM.yyyy HH:mm");
 		BufferedWriter output=null;
 		try {
-			 File file = new File("//home/simulator//simulacije_info.txt");
-//			 File file = new File("C:\\simulacije_info.txt");
+			 File file = new File(path+"simulacije_info.txt");
 			output = new BufferedWriter(new FileWriter(file,true));
 			output.write("\r\n");
 			output.write(format.format(new Date()) + ", "

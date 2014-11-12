@@ -1,107 +1,90 @@
-<!DOCTYPE some_name [
-		<!ENTITY nbsp "&#160;">
-		]>      
-<html xmlns="http://www.w3.org/1999/xhtml"  
-        xmlns:h="http://java.sun.com/jsf/html"  
-        xmlns:f="http://java.sun.com/jsf/core"  
-        xmlns:p="http://primefaces.org/ui"
-        xmlns:simulator="http://java.sun.com/jsf/composite/simulator"
-        xmlns:ui="http://java.sun.com/jsf/facelets">  
-      
-      
-	<h:head>  
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>Lottery Simulator</title>
-		<meta name="keywords" content="" />
-		<meta name="description" content="" />
-		<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
-		
-		
-		 
-	</h:head>  
-          
-    <h:body>  
-		
-		<div id="wrapper">
-	<div id="logo">
-		<h1>Lottery Simulator</h1>
-		<p><em> Developed by Sasa Hrubec </em></p>
-	</div>
-	<hr />
-	<!-- end #logo -->
-	<div id="header">
-		<div id="menu">
-			<ul>
-				<li class="#"><a href="simulation.jsf" class="first">Simulation</a></li>
-				<li class="current_page_item" > <a href="about.jsf"> About </a> </li>
-				<li><a href="contact.jsf">Contact</a></li>
-			</ul>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:simulator="http://java.sun.com/jsf/composite/simulator"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Lottery Simulator</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="stickyStyle.css" rel="stylesheet" type="text/css" media="screen" />
+</h:head>
+
+<h:body>
+
+	<div id="wrap">
+
+		<div id="logo">
+			<h1>Lottery Simulator</h1>
+			<p>
+				<em> Developed by Sasa Hrubec </em>
+			</p>
+		</div>
+		<hr />
+
+		<div id="header">
+			<div id="menu">
+				<ul>
+					<li class="#"><a href="simulation.jsf" class="first">Simulation</a></li>
+					<li class="current_page_item" > <a href="about.jsf"> About </a> </li>
+					<li><a href="contact.jsf">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="page">
+			<div id="page-bgtop">
+
+				<div id="sidebar">
+<!-- 								<ul> -->
+<!-- 									<li> -->
+<!-- 										<h2>Lorem ipsum</h2> -->
+<!-- 										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<h2>Lorem ipsum</h2> -->
+<!-- 										<ul> -->
+<!-- 											<li><a href="#">Lorem ipsum</a></li> -->
+<!-- 											<li><a href="#">Lorem ipsum</a></li> -->
+<!-- 											<li><a href="#">Lorem ipsum</a></li> -->
+<!-- 											<li><a href="#">Lorem ipsum</a></li> -->
+<!-- 											<li><a href="#">Lorem ipsum</a></li> -->
+<!-- 										</ul> -->
+<!-- 									</li> -->
+<!-- 								</ul> -->
+				</div>
+
+				<div id="content">
+					
+					<div class="post">
+						<h2 class="title"><a href="#">About Lottery Simulator</a>				</h2>
+						<div class="entry">
+					    <p>Lottery Simulator is a simple web application designed to demonstrate chances for winning the lottery. It simulates lottery drawing day by day, week by week and comparing
+							randomly generated (drawn) numbers with user selected numbers. Simulator was written by enthusiastic developer who also enjoy playing lottery.</p>
+					   	
+					    <p>If you are interested in further development of lottery simulator (additional lottery types support, massive simulation support, detailed simulation reports, etc.), feel free to leave a message.</p>
+					   	
+					   	<p>Have fun!</p>
+					   
+					   <a href="http://hr.linkedin.com/pub/sasa-hrubec/37/b5/963">
+					          <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" border="0" alt="View Sasa Hrubec's profile on LinkedIn" />
+					    </a>
+					   
+		                </div>
+					</div>
+
+				</div>
+			</div>
 		</div>
 	</div>
-	<!-- end #header -->
-	<!-- end #header-wrapper -->
-	<div id="page">
-	<div id="page-bgtop">
-    
-    <div id="sidebar">
-			<ul>
-				<li>
-					<h2>Lorem ipsum</h2>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-				</li>
-				<li>
-					<h2>Lorem ipsum</h2>
-					<ul>
-						<li><a href="#">Lorem ipsum</a></li>
-						<li><a href="#">Lorem ipsum</a></li>
-						<li><a href="#">Lorem ipsum</a></li>
-						<li><a href="#">Lorem ipsum</a></li>
-						<li><a href="#">Lorem ipsum</a></li>
-					</ul>
-				</li>
-			</ul>
-</div>
-		<!-- end #sidebar -->
-    
-		<div id="content">
-		
-		<div class="post">
-				<h2 class="title"><a href="#">About Lottery Simulator</a>				</h2>
-				<div class="entry">
-			    <p>Lottery Simulator is a simple web application designed to demonstrate chances for winning the lottery. It simulates lottery drawing day by day, week by week and comparing
-					randomly generated (drawn) numbers with user selected numbers. Simulator was written by enthusiastic developer who also enjoy playing lottery.</p>
-			   	
-			    <p>If you are interested in further development of lottery simulator (additional lottery types support, massive simulation support, detailed simulation reports, etc.), feel free to leave a message.</p>
-			   	
-			   	<p>Have fun!</p>
-			   
-			   
-			   <a href="http://hr.linkedin.com/pub/sasa-hrubec/37/b5/963">
-			          <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" border="0" alt="View Sasa Hrubec's profile on LinkedIn" />
-			    </a>
-			   
-                </div>
-			</div>
-		
-			
-</div>
-		<!-- end #content -->
-		
-		<div style="clear: both;">&nbsp;</div>
-	</div>
-	</div>
-	<!-- end #page -->
-	<div id="footer-bgcontent">
+
 	<div id="footer">
-			<p>Copyright  2014 lottery-simulator.com. All rights reserved.
-</p>
+		<p>Copyright 2014 lottery-simulator.com. All rights reserved.</p>
 	</div>
-	</div>
-	<!-- end #footer -->
-</div>
 
-
-              
-    </h:body>  
-    
-</html>  
+</h:body>
+</html>

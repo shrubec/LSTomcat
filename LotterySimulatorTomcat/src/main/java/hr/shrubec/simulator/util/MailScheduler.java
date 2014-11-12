@@ -175,7 +175,7 @@ public class MailScheduler extends HttpServlet{
 	
 	private void clearFiles() {
 		clearFile("simulacije_info.txt");
-		clearFile("kontakt.txt");
+//		clearFile("kontakt.txt");
 	}
 	
 	private void clearFile(String fileName) {
