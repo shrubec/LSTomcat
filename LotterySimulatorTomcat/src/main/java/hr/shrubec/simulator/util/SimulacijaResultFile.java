@@ -16,8 +16,8 @@ public class SimulacijaResultFile {
 	private BufferedWriter output=null;
 	private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	
-//	final static String path="//home/simulator//";
-	final static String path="C:\\";
+	final static String path="//home/simulator//";
+//	final static String path="C:\\";
 	
 	public SimulacijaResultFile(String filename) {
 		
