@@ -62,7 +62,7 @@ public class Updater extends HttpServlet {
 		
 		
 		out.println("<head>");
-		out.println("<LINK REL=StyleSheet HREF='tableStyle.css' TYPE='text/css'>");
+		out.println("<LINK REL=StyleSheet HREF='style/tableStyle.css' TYPE='text/css'>");
 		out.println("</head>");
 		
 		if (map != null) {
