@@ -21,7 +21,7 @@ public class SimulacijaResultFile {
 	
 	public SimulacijaResultFile(String filename) {
 		
-		String folder=path + sdf.format(new Date())+"\\";
+		String folder=path + sdf.format(new Date())+"//";
 		File dir = new File(folder);
 		dir.mkdir();
 		file = new File(folder + filename+ ".txt");
