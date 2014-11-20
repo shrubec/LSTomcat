@@ -17,16 +17,16 @@ public class SloganFacade {
 	
 	public SloganFacade() {
 		lista=new ArrayList<String>();
-		lista.add("All it takes is a dollar and another dollar.  Then another dollar.  And another...");
-		lista.add("The Lottery... get rich or die trying!");
-		lista.add("Hey, crazier things have happened!");
-		lista.add("Work?  Save?  Invest?  Screw That!");
-		lista.add("The Lottery... if you don’t keep playing we’ll just raise your taxes.");
-		lista.add("You play to win the Lottery!  You don’t play just to play it!");
-		lista.add("Sure, you’re more likely to get hit by lightning... but the lottery is more fun.");
-		lista.add("It could be you! (But don’t get your hopes up).");
-		lista.add("There really is a sucker born every minute.");
-		lista.add("You know you’d just throw your money away anyway.");
+		lista.add("\"All it takes is a dollar and another dollar.  Then another dollar.  And another...\"");
+		lista.add("\"The Lottery... get rich or die trying!\"");
+		lista.add("\"Hey, crazier things have happened!\"");
+		lista.add("\"Work?  Save?  Invest?  Screw That!\"");
+		lista.add("\"The Lottery... if you don’t keep playing we’ll just raise your taxes.\"");
+		lista.add("\"You play to win the Lottery!  You don’t play just to play it!\"");
+		lista.add("\"Sure, you’re more likely to get hit by lightning... but the lottery is more fun.\"");
+		lista.add("\"It could be you! (But don’t get your hopes up).\"");
+		lista.add("\"There really is a sucker born every minute.\"");
+		lista.add("\"You know you’d just throw your money away anyway.\"");
 	}
 
 	public String getSlogan() {
