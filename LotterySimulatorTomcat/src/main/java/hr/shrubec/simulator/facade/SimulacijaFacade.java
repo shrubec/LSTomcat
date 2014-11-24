@@ -9,7 +9,6 @@ import hr.shrubec.simulator.util.SimulacijaResultFile;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +22,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -60,7 +60,7 @@ public class SimulacijaFacade {
 	
 	private Boolean mainVisible=true;
 	private Boolean simulacijaVisible=false;
-	private Integer simulationSpeed=0; //20
+	private Integer simulationSpeed=10; //20
 	private PieChartModel pieModel=new PieChartModel();  
 	
 	
@@ -68,7 +68,7 @@ public class SimulacijaFacade {
 	private Boolean simulationPaused=Boolean.FALSE;
 	
 	private StreamedContent file;
-	
+	private Boolean isIE=true;
 	
 	
 	public List<String> getSelectedOptions() {  
@@ -79,47 +79,28 @@ public class SimulacijaFacade {
 	}  
 	    
 	    
-	    
 	public SimulacijaFacade() {
 		HttpSession session=(HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		if (session == null) 
+		if (session == null) {
 			session=(HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		}
+		HttpServletRequest request=(HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		String userAgent=request.getHeader("User-Agent");
+		if(userAgent.contains("Firefox") || userAgent.contains("Chrome") || userAgent.contains("Safari") || userAgent.contains("Opera")) {
+			isIE=false;
+		}
+		
 	}
-
-	
-	
 	
 	public Simulacija getSimulacija() {
 		return simulacija;
 	}
 
 
-
-
 	public void setSimulacija(Simulacija simulacija) {
 		this.simulacija = simulacija;
 	}
 
-
-
-
-//	public String onFlowProcess(FlowEvent event) {  
-//       
-//       if (event.getNewStep().equals("rezultati"))
-//    	   validiraj();
-//       
-//        if(skip) {  
-//            skip = false;   //reset in case user goes back  
-//            return "confirm";  
-//        }  
-//        else {  
-//            return event.getNewStep();  
-//        }  
-//        
-//       
-//        
-//    }  
-//	
 	 public boolean isSkip() {  
 	        return skip;  
 	 }   
@@ -127,8 +108,6 @@ public class SimulacijaFacade {
 	 public void setSkip(boolean skip) {  
 	        this.skip = skip;  
 	 }
-
-
 
 
 	public boolean getDisableCustomTip() {
@@ -860,14 +839,16 @@ public class SimulacijaFacade {
 		Integer brojeva=ispunjenoBrojevaUListicu(ticket);
 		if (brojeva.intValue() > 0) {
 			if (brojeva.intValue() == simulacija.getBrojeva().intValue()) {
-//				return "greenColoredPanel";
-//				return "greenToolbar";
-				return "background-color: green;";
+				if (isIE)
+					return "color: #00CC00;";
+				else
+					return "background-color: green;";
 			}
 			else {
-//				return "redColoredPanel";
-//				return "redToolbar";
-				return "background-color: red;";
+				if (isIE)
+					return "color: red;";
+				else
+					return "background-color: red;";
 			}
 		}
 		
