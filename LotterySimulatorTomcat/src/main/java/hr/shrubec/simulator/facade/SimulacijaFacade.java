@@ -165,7 +165,11 @@ public class SimulacijaFacade {
 	
 	
 	public void updateBrojeva() {
-		 if (simulacija.getVrsta() != null && simulacija.getVrsta().intValue() == 1) {
+		if (simulacija.getVrsta() != null && simulacija.getVrsta().intValue() == 0) {
+			 simulacija.setBrojeva(3);
+			 simulacija.setOdBrojeva(9);
+		 }
+		else if (simulacija.getVrsta() != null && simulacija.getVrsta().intValue() == 1) {
 			 simulacija.setBrojeva(5);
 			 simulacija.setOdBrojeva(35);
 		 }
@@ -217,6 +221,7 @@ public class SimulacijaFacade {
 			 simulacija.setBrojeva(12);
 			 simulacija.setOdBrojeva(24);
 		 }
+		 
 		 
 		 if (simulacija.getBrojeva() != null)
 			 simulacija.setBrojevaZaOdabrati(simulacija.getBrojeva()+1);
