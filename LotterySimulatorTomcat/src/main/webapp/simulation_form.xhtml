@@ -182,7 +182,7 @@
  
  
  		<p:growl id="simulationMessage" showDetail="true" sticky="true" globalOnly="true" />  
-  		<p:poll interval="5" listener="#{simulacijaFacade.displaySimulationMessage}" update="simulationMessage" rendered="#{simulacijaFacade.simulationStarted == true}"/>  
+  		<p:poll interval="10" listener="#{simulacijaFacade.displaySimulationMessage}" update="simulationMessage" rendered="#{simulacijaFacade.simulationStarted == true}"/>  
       
       
       

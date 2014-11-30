@@ -29,7 +29,7 @@ public class Loto {
 	
 	private RanMT ranMT;
 	private Ranecu ranescu;
-	private SimpleDateFormat sdf=new SimpleDateFormat("dd.MM.yyyy");
+	private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	private Calendar cal=Calendar.getInstance();
 	
 	private int brojeva;
@@ -495,9 +495,9 @@ public class Loto {
 					messagesList.add( sdf.format(izvlacenje.getDatum()) + " Jackpot missed by one number!");
 				}
 				
-				if (listic.getBrojPogodjenihUKombinaciji(key).intValue() >= (brojeva - 2)) {
-					messagesList.add( sdf.format(izvlacenje.getDatum()) + " Jackpot missed by two numbers!");
-				}
+//				if (listic.getBrojPogodjenihUKombinaciji(key).intValue() >= (brojeva - 2)) {
+//					messagesList.add( sdf.format(izvlacenje.getDatum()) + " Jackpot missed by two numbers!");
+//				}
 				
 			}
 			
