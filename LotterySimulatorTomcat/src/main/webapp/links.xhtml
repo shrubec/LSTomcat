@@ -12,7 +12,7 @@
             <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
           <title>Lottery Simulator</title>
        </f:facet>
-       
+
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
@@ -28,7 +28,7 @@
 		<div id="logo">
 			<h1>Lottery Simulator</h1>
 			<p>
-				<em> <h:outputLabel value="#{sloganFacade.slogan}" /> </em>
+				<em><h:outputLabel value="#{sloganFacade.slogan}" /> </em>
 			</p>
 		</div>
 		<hr />
@@ -36,10 +36,10 @@
 		<div id="header">
 			<div id="menu">
 				<ul>
-					<li><a href="simulation.jsf" class="first">Simulation</a></li>
-					<li><a href="about.jsf">About</a></li>
-					<li class="current_page_item"><a href="contact.jsf">Contact</a></li>
-					<li ><a href="links.jsf">Links</a></li>
+					<li class="#"><a href="simulation.jsf" class="first">Simulation</a></li>
+					<li> <a href="about.jsf"> About </a> </li>
+					<li> <a href="contact.jsf">Contact</a></li>
+					<li class="current_page_item" ><a href="links.jsf">Links</a></li>
 				</ul>
 			</div>
 		</div>
@@ -52,15 +52,30 @@
 				</div>
 
 				<div id="content">
-					<ui:include src="contact_form.xhtml" />
+					
+					<div class="post">
+						<div class="entry">
+					 
+					   	<h3> <a href="http://www.lottostrategies.com">LottoStrategies.com</a></h3>
+					   	<br/>
+					   	<p>Provides comprehensive services for U.S., Canada and U.K. lottery players including winning numbers, lottery winning strategies, number picking systems, wheeling system, analysis ... </p>
+					   	
+					   	
+					    <br/>
+					 
+					   
+		                </div>
+					</div>
+
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<div id="footer">
-				<p>Copyright 2014 Sasa Hrubec. All rights reserved.</p>
-		</div>
+<!-- 		<p>Copyright 2014 lottery-simulator.com. All rights reserved.</p> -->
+		<p>Copyright 2014 Sasa Hrubec. All rights reserved.</p>
+	</div>
 
 </h:body>
 </html>
